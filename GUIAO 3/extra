@@ -1,0 +1,18 @@
+extra 
+1-
+	while(read>0)
+			termina o programa
+
+	se o ultimo caracter da string de comando for '&' o pai nao espera pelo filho
+	fazer um if antes do wait do pai
+
+2-
+	criar os filhos todos a cabeca
+	depois o pai esperar por todos, pai tem de recolher o valor de saida dos
+		processos filho
+	guardar num array as vezes que ainda falta correr cada um ate chegar a 0
+
+	provavelmente vai ser preciso muitos for's
+
+	fork x3
+	wait x3
