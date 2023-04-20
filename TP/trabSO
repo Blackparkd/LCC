@@ -1,0 +1,57 @@
+	
+	// Tracer
+
+/* main.c */
+int main(int argc, char *argv[]) {  <- ./tracer execute -u ls -la
+
+	if(argc == 1){
+  	return
+  }
+  
+  cmd = args[1]
+  
+  switch( cmd )
+{
+	case "execute":
+			runCommands(argv[2])
+			Break;
+	case "status":
+			runStatus
+			Break;
+	default:
+			Block-1; "Unkown command"
+			Break;
+}
+}
+
+void runCommands(char *command[])
+
+ start = timeoftheday()
+
+// Comunicação com o monitor
+
+if(!fork){
+	execvp(arg)
+  
+  // O filho transforma-se no exec e depois do exec não faz nada
+}
+
+// pai tem que esperar que o filho morra
+
+finish timeoftheday()
+
+/////
+
+char *execArgs[] = {"ls","-l",NULL};
+
+int i;
+
+		pid_t p = fork();
+
+		if (p == 0)
+		{
+			printf("Filho: PID: %d\n",getpid());
+			
+			int	ret = execvp(execArgs[0], execArgs);
+			
+			perror("Exec deu erro");
