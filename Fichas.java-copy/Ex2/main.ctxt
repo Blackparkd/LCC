@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=main
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=in\ datas
+comment2.target=void\ adicionarData(java.util.Scanner,\ ex2)
+numComments=3
