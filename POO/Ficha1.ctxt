@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Ficha1
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment10.params=n
+comment10.target=boolean\ ePrimo(int)
+comment11.params=
+comment11.target=void\ primo()
+comment12.params=
+comment12.target=int\ idade()
+comment2.params=diaX\ mesX\ anoX
+comment2.target=int\ dias(int,\ int,\ int)
+comment3.params=dia\ mes\ ano
+comment3.target=java.lang.String\ diaSemana(int,\ int,\ int)
+comment4.params=dia
+comment4.target=java.lang.String\ Semana(int)
+comment5.params=mes1\ ano1\ numDias
+comment5.target=java.lang.String\ somaMes(int,\ int,\ int)
+comment6.params=mes1\ ano1\ data
+comment6.target=java.lang.String\ montaData(int,\ int,\ int)
+comment7.params=n\ classificacao
+comment7.target=int[]\ nClassifica(int,\ int[])
+comment8.params=n\ temperaturas
+comment8.target=int[]\ media(int,\ int[])
+comment9.params=
+comment9.target=int\ areaPerimetro()
+numComments=13
