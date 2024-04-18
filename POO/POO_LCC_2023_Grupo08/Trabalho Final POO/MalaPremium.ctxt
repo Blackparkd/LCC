@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=MalaPremium
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ MalaPremium\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=codigo\ desc\ exdonos\ precobase\ aval\ volume\ ano\ material\ autor
+comment1.target=MalaPremium(java.lang.String,\ java.lang.String,\ int,\ double,\ double,\ double,\ int,\ java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getAutor()
+comment3.params=autor
+comment3.target=void\ setAutor(java.lang.String)
+comment4.params=o
+comment4.target=boolean\ equals(java.lang.Object)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

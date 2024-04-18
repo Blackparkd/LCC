@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=NaoExisteUtilizadorException
+comment1.params=msg
+comment1.target=NaoExisteUtilizadorException(java.lang.String)
+numComments=2

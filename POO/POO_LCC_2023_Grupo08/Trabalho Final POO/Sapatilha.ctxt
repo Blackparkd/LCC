@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Sapatilha
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Sapatilhas\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=codigo\ desc\ exdonos\ precobase\ aval\ tamanho\ tematacadores\ cor\ anocolecao
+comment1.target=Sapatilha(java.lang.String,\ java.lang.String,\ int,\ double,\ double,\ int,\ boolean,\ java.lang.String,\ int)
+comment10.params=o
+comment10.target=boolean\ equals(java.lang.Object)
+comment11.params=
+comment11.target=java.lang.String\ toString()
+comment2.params=
+comment2.target=int\ getTamanho()
+comment3.params=
+comment3.target=boolean\ getTemAtacadores()
+comment4.params=
+comment4.target=java.lang.String\ getCor()
+comment5.params=
+comment5.target=int\ getAnoColecao()
+comment6.params=tamanho
+comment6.target=void\ setTamanho(int)
+comment7.params=tematacadores
+comment7.target=void\ setTemAtacadores(boolean)
+comment8.params=cor
+comment8.target=void\ setCor(java.lang.String)
+comment9.params=ano
+comment9.target=void\ setAnoColecao(int)
+numComments=12

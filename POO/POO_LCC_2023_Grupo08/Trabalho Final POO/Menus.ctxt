@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Menus
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Mens\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Menus()
+comment2.params=
+comment2.target=void\ menu()
+comment3.params=u\ t\ loja
+comment3.target=void\ criasap(Utilizador,\ Transportador,\ Vintage)
+comment4.params=u\ t\ loja
+comment4.target=void\ criasapprem(Utilizador,\ Transportador,\ Vintage)
+comment5.params=u\ t\ loja
+comment5.target=void\ criatshirt(Utilizador,\ Transportador,\ Vintage)
+comment6.params=u\ t\ loja
+comment6.target=void\ criamala(Utilizador,\ Transportador,\ Vintage)
+comment7.params=u\ t\ loja
+comment7.target=void\ criamalaprem(Utilizador,\ Transportador,\ Vintage)
+comment8.params=loja
+comment8.target=void\ criauser(Vintage)
+comment9.params=loja
+comment9.target=void\ criatransportador(Vintage)
+numComments=10

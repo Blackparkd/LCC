@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Mala
+comment1.params=codigo\ desc\ exdonos\ precobase\ aval\ volume\ ano\ material
+comment1.target=Mala(java.lang.String,\ java.lang.String,\ int,\ double,\ double,\ double,\ int,\ java.lang.String)
+comment2.params=
+comment2.target=double\ getVolume()
+comment3.params=
+comment3.target=int\ getAnoColecao()
+comment4.params=
+comment4.target=java.lang.String\ getMaterial()
+comment5.params=volume
+comment5.target=void\ setVolume(double)
+comment6.params=ano
+comment6.target=void\ setAnoColecao(int)
+comment7.params=material
+comment7.target=void\ setMaterial(java.lang.String)
+comment8.params=o
+comment8.target=boolean\ equals(java.lang.Object)
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=10
