@@ -7,9 +7,9 @@
 -define(Rooms, []).
 
 % Cria uma nova sala %
-create_room(PlayerId) ->
+create_room(MaxPlayers) ->
     RoomId = generate_room(),
-    Room = #room{id = RoomId, players = [PlayerId]},
+    Room = #room{id = RoomId, players = [], max_players = MaxPlayers},
     NewRooms = [Room | ?Rooms],
     {ok, RoomId, NewRooms}.
 
@@ -51,7 +51,7 @@ find_room() ->
     % Implemente a lógica para encontrar uma sala com espaço disponível
     Counter = 0,
     NewCounter = Counter +1,
-    ?MODULE ! {ok,NewCounter}.
+    ?MODULE ! {ok,NewCounter}
 .
 
 add_player(RoomId, PlayerId) ->
