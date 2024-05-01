@@ -1,4 +1,5 @@
 package Projeto23_24.Testar;
+
 // javac Client.java para compilar
 // java Client 172.26.70.179 <room number> para correr
 //             192.168.1.75 se for no fixo !!

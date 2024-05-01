@@ -8,9 +8,8 @@ stop(Server) -> Server ! stop.
 server(Port) ->
     {ok, LSock} = gen_tcp:listen(Port, [binary, {packet, line}, {reuseaddr, true}]),
     Room = spawn(fun()-> room([]) end),
-    spawn(fun() -> acceptor(LSock, Room) end),
-    receive stop -> ok end.
-
+    Acceptor = spawn(fun() -> acceptor(LSock, Room) end),
+    receive stop -> stop(Acceptor) end.
 acceptor(LSock, Room) ->
         {ok, Sock} = gen_tcp:accept(LSock),
     spawn(fun() -> acceptor(LSock, Room) end),
