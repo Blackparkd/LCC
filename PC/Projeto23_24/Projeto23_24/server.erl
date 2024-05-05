@@ -1,5 +1,5 @@
 -module(server).
--export([register_account/2, remove_account/2, login/2, logout/1, online/0, start/0, getLevel/1, getScore/1, checkIntersection/2]).
+-export([start/1]).
 
 % Funções de operações de contas %
 register_account(Username, Pass) ->
@@ -21,17 +21,17 @@ getLevel(Username) ->
 getScore(Username) -> 
 	request({getscore, Username}).
 
-online() -> 
+online() ->
 	request({online}).
 
 % Funções de arranque de servidor %
-start() ->
+start(Port) ->
 	startLogin(),
-	serverStart().
+	serverStart(Port).
 
-serverStart() ->
+serverStart(Port) ->	% #{} -> AllUsers	#{} -> WaitingUsers
 	Room = spawn(fun() -> waitingRoom(#{}, #{}) end), 
-	{ok, Lsock} = gen_tcp:listen(12345, [binary, {packet, line}, {reuseaddr, true}]),
+	{ok, Lsock} = gen_tcp:listen(Port, [binary, {packet, line}, {reuseaddr, true}]),
 	spawn(fun() -> acceptor(Lsock, Room) end).
 
 acceptor(Lsock, Room) ->
@@ -85,19 +85,36 @@ waitingRoom(Users, ReadyToPlayUsers) ->
 			io:format("Utilizador " ++ User ++ " acabou de Sair!\n"),
 			waitingRoom(maps:remove(User, Users), ReadyToPlayUsers);
 
-		{play, User, Level, {Socket,From}} -> 
-			case bestmatch(Level, maps:to_list(ReadyToPlayUsers)) of
-				[User2, Level2, Socket2, From2] ->
-					io:format("Partida entre " ++ User ++ " e " ++ User2 ++ " a comecar!\n"),
-					initJogo(Socket, Socket2, User, User2, From, From2), % começa o jogo com aqueles dois jogadores (vamos ter de alterar para deixar entrar até 4)
-					waitingRoom(Users, maps:remove(Level2, ReadyToPlayUsers)); % remover o User2 em vez do Level2 maybe?
-				[] -> 
-					gen_tcp:send(Socket, "wait\n"),
-					waitingRoom(Users, maps:put(Level, {User, Socket, From}, ReadyToPlayUsers)) % se o bestmatch não devolver nada, põe o User em espera (ReadyToPlayUsers)
+		{play, Players, User, Level, {Socket,From}} ->
+			case length(Players) of
 
+				4 -> initJogo(SocketList, PlayersList, FromList),
+				waitingRoom(Users, ReadyToPlayUsers);
+				
+				1 -> 
+					case bestmatch(Level, maps:to_list(ReadyToPlayUsers)) of
+						[User2, Level2, Socket2, From2] ->
+							[{User2,Level2,Socket2,From2}] ++ Players,
+							From ! {play, Players, User, Level, {Socket, From}},
+							waitingRoom(Users, maps:remove(Level2, ReadyToPlayUsers));
+						[] -> 
+							gen_tcp:send(Socket, "Wait\n"),
+							waitingRoom(Users, maps:put(Level, {User, Socket, From}, ReadyToPlayUsers)) % se o bestmatch não devolver nada, põe o User em espera (ReadyToPlayUsers)
+					end;
+				_ ->
+					% start timer 5 sec para começar
+					case bestmatch(Level, maps:to_list(ReadyToPlayUsers)) of
+						[User2, Level2, Socket2, From2] ->
+							[{User2,Level2,Socket2,From2}] ++ Players,
+							From ! {play, Players, User, Level, {Socket, From}},
+							waitingRoom(Users, maps:remove(Level2, ReadyToPlayUsers));
+						[] -> 
+							gen_tcp:send(Socket, "wait\n"),
+							waitingRoom(Users, maps:put(Level, {User, Socket, From}, ReadyToPlayUsers)) % se o bestmatch não devolver nada, põe o User em espera (ReadyToPlayUsers)
+				end
+					
 			end
-
-	end.
+		end.
 
 
 
